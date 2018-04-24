@@ -34,7 +34,7 @@ public class TestController {
     public String db() throws SQLException {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM public.Product");
+            ResultSet rs = stmt.executeQuery("SELECT NAME FROM public.Product");
 
             String output = "";
             while (rs.next()) {
