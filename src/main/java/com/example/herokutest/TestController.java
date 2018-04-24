@@ -32,14 +32,16 @@ public class TestController {
     }
 
     public String db() throws SQLException {
+        String output = "";
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT NAME FROM Product");
 
-            String output = rs.toString();
-
-            return output;
+            if (rs.next()) {
+                output = rs.toString();
+            }
         }
+        return output;
     }
 
     /*@RequestMapping("/db")
