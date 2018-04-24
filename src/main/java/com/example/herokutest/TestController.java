@@ -49,8 +49,8 @@ public class TestController {
         }
     }
 
-    @Bean
-    public DataSource dataSource() throws SQLException {
+    /*@Bean
+    public DataSource dataSource() {
         if (dbUrl == null || dbUrl.isEmpty()) {
             return new HikariDataSource();
         } else {
@@ -58,5 +58,5 @@ public class TestController {
             config.setJdbcUrl(dbUrl);
             return new HikariDataSource(config);
         }
-    }
+    }*/
 }
