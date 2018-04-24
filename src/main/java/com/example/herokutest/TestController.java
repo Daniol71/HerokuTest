@@ -35,10 +35,10 @@ public class TestController {
         String output = "";
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT NAME FROM public.Product");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM public.\"Product\"");
 
             if (rs.next()) {
-                output = rs.toString();
+                output = rs.getString("Name");
             }
         }
         return output;
